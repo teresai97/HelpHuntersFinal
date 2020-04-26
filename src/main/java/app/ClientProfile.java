@@ -37,7 +37,7 @@ public class ClientProfile extends HttpServlet {
         String stringCon = "jdbc:mysql://localhost/Caregivers?user=equipo&password=Tecnun2020";
         try {
             Connection con = DriverManager.getConnection(stringCon);
-            ClientData client = ClientData.getInfo(con, id);
+            ClientData client = ClientData.getInfo(con, id, false);
 
             int[] infoemployments = EmploymentRecordData.countEmployments(con, id);
             //int sum = EmploymentRecordData.addHours(con, id);
@@ -60,6 +60,73 @@ public class ClientProfile extends HttpServlet {
         response.getWriter().write(json);
         System.out.println("Terminé la petición voy a regresar la respuesta");
 
+    }
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String firstname = request.getParameter("firstname");
+		String lastname = request.getParameter( "lastname");
+        String email = request.getParameter("email");
+        String currentPassword = request.getParameter("currentPassword");
+        String newPassword = request.getParameter("newPassword");
+
+        System.out.println("Datos Recibidos: " +  firstname + " " +  lastname +  " " + email + " " +  currentPassword + " " + newPassword);
+
+        HttpSession session = request.getSession(true);
+        int id = (int)session.getAttribute("loginid");
+
+        String stringCon = "jdbc:mysql://localhost/Caregivers?user=equipo&password=Tecnun2020";
+        Connection connection;
+        try {
+
+            System.out.println("id de sesion es: " + id);
+
+            if(newPassword == null){
+                System.out.println("No hay nueva contra");
+            }else{
+                System.out.println("Por alguna razón hay contra");
+
+            }
+
+
+
+            connection = DriverManager.getConnection(stringCon);
+
+            ClientData client = ClientData.getInfo(connection, id, true);
+            
+            System.out.println("El cliente es " + client.password);
+            if(newPassword != null){
+                // TODO Terminar es funcionalidad
+                System.out.println("El usuario está intentado cambiar la contraseña");
+                if (client.password.equals(currentPassword) ) {
+                    System.out.println(" Ok la contraseña coincide procedemos a cambiarla...");
+                }else{
+                    Response res = new Response(true,"Please validate your current they don't  match");
+                    String json = new Gson().toJson(res);
+                    response.getWriter().write(json);
+                }
+            }else{
+                System.out.println("Solo vamos a cambiar los datos de firstname, lastname, email");
+                client.setLastname(lastname);
+                client.setFirstname(firstname);
+                client.setEmail(email);
+                client.setClientID(id);
+                ClientData.updateClientData(connection, client, false);
+
+                Response res = new Response(false, "Your data was updated");
+                String json = new Gson().toJson(res);
+                response.getWriter().write(json);
+            }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+
+            Response res = new Response(true,"Sorry, an unexpeted error have ocurred");
+            String json = new Gson().toJson(res);
+            response.getWriter().write(json);
+
+        } 
     }
 
 }

@@ -25,15 +25,10 @@ function profileDisplay(){
             } else {
                 gender.innerHTML = 'gentleman'
             }
-
         });
     })
 }
 
-function clientName(){
-    setTimeout(function(){ profileDisplay(); }, 1000);
-
-}
-
 profileDisplay();
+
 
