@@ -1,0 +1,68 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>ClientRegistration</servlet-name>
+  	<display-name>ClientRegistration</display-name>
+  	<servlet-class>app.ClientRegistration</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClientRegistration</servlet-name>
+  	<url-pattern>/ClientRegistration</url-pattern>
+  </servlet-mapping>
+
+	<servlet>
+		<servlet-name>CheckLogin</servlet-name>
+		<display-name>CheckLogin</display-name>
+		<servlet-class>app.CheckLogin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckLogin</servlet-name>
+		<url-pattern>/CheckLogin</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ClientProfile</servlet-name>
+		<display-name>ClientProfile</display-name>
+		<servlet-class>app.ClientProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClientProfile</servlet-name>
+		<url-pattern>/ClientProfile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>JobOffersDetail</servlet-name>
+		<display-name>JobOffersDetail</display-name>
+		<servlet-class>app.JobOffersDetail</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>JobOffersDetail</servlet-name>
+		<url-pattern>/JobOffersDetail</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TerminateJob</servlet-name>
+		<display-name>TerminateJob</display-name>
+		<servlet-class>app.TerminateJob</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TerminateJob</servlet-name>
+		<url-pattern>/TerminateJob</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>FileNotice</servlet-name>
+		<display-name>FileNotice</display-name>
+		<servlet-class>app.FileNotice</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileNotice</servlet-name>
+		<url-pattern>/FileNotice</url-pattern>
+	</servlet-mapping>
+
+
+</web-app>

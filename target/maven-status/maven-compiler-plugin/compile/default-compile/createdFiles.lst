@@ -1,0 +1,13 @@
+app/TerminateJob.class
+clientUtils.class
+app/ResponseTerminate.class
+app/ClientProfile.class
+app/EmploymentRecordData.class
+app/Response.class
+app/CheckLogin.class
+app/FileNotice.class
+app/JobOffersDetail.class
+app/Notice.class
+app/ClientData.class
+app/ClientRegistration.class
+app/ResponseProfile.class

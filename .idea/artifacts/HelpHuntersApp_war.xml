@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HelpHuntersApp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>HelpHuntersApp</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="HelpHuntersApp.war">
+      <element id="artifact" artifact-name="HelpHuntersApp:war exploded" />
+    </root>
+  </artifact>
+</component>
