@@ -1,38 +1,15 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@adamo-fig 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-javaee-samples
-/
-javaee7-samples
-377
-2.4k1.7k
- Code Issues 91 Pull requests 12 Actions Projects 0 Wiki Security 0 Insights
-javaee7-samples/.gitignore
-@jGauravGupta jGauravGupta PAYARA-3484 fix ci failure
-126e410 on 24 Apr 2019
-@bartoszmajsak@arjantijms@openwms@rafabene@jGauravGupta@arun-gupta
-104 lines (81 sloc)  1.19 KB
-  
 # Directories #
 build/
 bin/
 target/
+/target
 libs/
 tmp/
 node_modules/
 jaxws/jaxws-client/src/main/java
 jaxws/jaxws-endpoint/src/main/webapp/WEB-INF/wsdl/
  
+.settings
 # OS Files #
 .DS_Store
  
