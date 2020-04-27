@@ -93,21 +93,28 @@ public class ClientData {
         return n;
     }
 
-    public static ClientData getInfo (Connection con, int id){
-        String sql = "Select firstname, lastname, email, gender FROM Client WHERE clientID = ?";
+    public static ClientData getInfo (Connection con, int id, boolean getPassword){
+        String sql = "Select * FROM Client WHERE clientID = ?";
         System.out.println("Conseguir información: " + sql);
         ClientData client = null;
         try {
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
+
             if(result.next()){
+                // Si se pasa el parámetro getPassword como true entonces se guarda la contraseña en el objeto client
+                String password = null;
+                if(getPassword){
+                 password= result.getString("email");
+                }
+
                 client = new ClientData(
                         result.getString("firstname"),
                         result.getString("lastname"),
                         result.getInt("gender"),
                         result.getString("email"),
-                        null);
+                        password);
             }
             result.close();
             statement.close();
@@ -117,6 +124,27 @@ public class ClientData {
         }
 
         return client;
+    }
+
+
+    public static ClientData updateClientData(Connection connection, ClientData client, boolean updatePass){
+        try {
+        System.out.println("Actualizando datos " + client.clientID  + client.firstname +  " " + client.lastname +  " " + client.email);
+        String sql = "UPDATE Client SET firstname = ?, lastname = ?, email = ? WHERE clientID = ?;";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, client.firstname);
+        statement.setString(2, client.lastname);
+        statement.setString(3, client.email);
+        statement.setInt(4, client.clientID);
+
+        System.out.println("Aquí debe de registrar el usuario");
+       
+        statement.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
