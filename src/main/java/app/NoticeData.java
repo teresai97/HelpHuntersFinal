@@ -177,6 +177,7 @@ public class NoticeData {
                         result.getString("administratorfirstname"),
                         result.getString("administratorlastname")
                 );
+                System.out.println("Date created: " + notice.datecreated);
                 v.addElement(notice);
             }
             result.close();

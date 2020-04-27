@@ -38,6 +38,7 @@ public class caregiverProfile extends HttpServlet {
             System.out.println("clientHome login: " + login);
 			System.out.println("clientHome loginid: " + loginid);
         }
+        // aqui esta mal
 	String firstname = req.getParameter("firstname");
 	String lastname = req.getParameter("lastname");
 	int caregiverID = Integer.parseInt(req.getParameter("caregiverID"));

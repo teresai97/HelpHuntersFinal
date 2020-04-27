@@ -84,5 +84,15 @@
 		<url-pattern>/NoticeList</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>clientHome</servlet-name>
+		<display-name>clientHome</display-name>
+		<servlet-class>app.clientHome</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>clientHome</servlet-name>
+		<url-pattern>/clientHome</url-pattern>
+	</servlet-mapping>
+
 
 </web-app>
