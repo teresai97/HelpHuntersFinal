@@ -2,10 +2,12 @@ package app;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.Vector;
 
-public class Notice {
+public class NoticeData {
     int noticeID;
     String subject;
     String message;
@@ -16,8 +18,13 @@ public class Notice {
     Boolean replyhasbeenread;
     int classification;
     int employmentID;
+    String caregiverfirstname;
+    String caregiverlastname;
+    String administratorfirstname;
+    String administratorlastname;
 
-    public Notice(String subject, String message, Date datecreated, String reply, int administratorID, Date datereplied, Boolean replyhasbeenread, int classification, int employmentID) {
+    public NoticeData (int noticeID, String subject, String message, Date datecreated, String reply, int administratorID, Date datereplied, Boolean replyhasbeenread, int classification, int employmentID, String caregiverfirstname, String caregiverlastname, String administratorfirstname, String administratorlastname) {
+        this.noticeID = noticeID;
         this.subject = subject;
         this.message = message;
         this.datecreated = datecreated;
@@ -27,9 +34,13 @@ public class Notice {
         this.replyhasbeenread = replyhasbeenread;
         this.classification = classification;
         this.employmentID = employmentID;
+        this.caregiverfirstname = caregiverfirstname;
+        this.caregiverlastname = caregiverlastname;
+        this.administratorfirstname = administratorfirstname;
+        this.administratorlastname = administratorlastname;
     }
 
-    public Notice(String subject, String message, int classification, int employmentID) {
+    public NoticeData (String subject, String message, int classification, int employmentID) {
         this.subject = subject;
         this.message = message;
         this.classification = classification;
@@ -116,7 +127,7 @@ public class Notice {
         this.employmentID = employmentID;
     }
 
-    public static int InsertClient (Connection con, Notice notice) {
+    public static int InsertClient (Connection con, NoticeData notice) {
         String sql = "INSERT INTO Notice (subject, message, datecreated, classification, employmentId)" +
                 " VALUES (?, ?, CONVERT_TZ(now(),'+00:00','+02:00') , ?, ?)";
         System.out.println("Insert a new notice into de database: " + sql);
@@ -135,6 +146,47 @@ public class Notice {
         }
 
         return n;
+    }
+
+    public static Vector<NoticeData> getNotices (Connection connection, int id) {
+        Vector<NoticeData> v = new Vector<NoticeData>();
+        String sql = "Select Notice.*, Caregiver.firstname AS caregiverfirstname, Caregiver.lastname AS caregiverlastname," +
+                " Administrator.firstname AS administratorfirstname, Administrator.lastname AS administratorlastname " +
+                "FROM EmploymentRecord, Caregiver, Notice, Administrator WHERE Notice.employmentID = EmploymentRecord.employmentID " +
+                "AND EmploymentRecord.clientID = ? AND EmploymentRecord.caregiverID = Caregiver.caregiverID AND Notice.administratorID = " +
+                "Administrator.administratorID";
+        System.out.println("See all the notices the client has made: " + sql);
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            ResultSet result = statement.executeQuery();
+            while(result.next()) {
+                NoticeData notice = new NoticeData(
+                        result.getInt("noticeID"),
+                        result.getString("subject"),
+                        result.getString("message"),
+                        result.getDate("datecreated"),
+                        result.getString("reply"),
+                        result.getInt("administratorID"),
+                        result.getDate("datereplied"),
+                        result.getBoolean("replyhasbeenread"),
+                        result.getInt("classification"),
+                        result.getInt("employmentID"),
+                        result.getString("caregiverfirstname"),
+                        result.getString("caregiverlastname"),
+                        result.getString("administratorfirstname"),
+                        result.getString("administratorlastname")
+                );
+                v.addElement(notice);
+            }
+            result.close();
+            statement.close();
+        } catch (SQLException e){
+            e.printStackTrace();
+            System.out.println("You got this exception: " + e + " when executing " + sql);
+        }
+
+        return v;
     }
 }
 

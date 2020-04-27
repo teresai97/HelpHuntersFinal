@@ -214,7 +214,7 @@ public class EmploymentRecordData {
             statement.close();
         } catch (SQLException e){
             e.printStackTrace();
-            System.out.println("You got this exception: " + sql);
+            System.out.println("You got this exception: " + e + "when executing " + sql);
         }
 
         return v;

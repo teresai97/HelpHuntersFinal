@@ -54,8 +54,8 @@ public class FileNotice extends HttpServlet {
             String stringCon = "jdbc:mysql://localhost/Caregivers?user=equipo&password=Tecnun2020";
             try {
                 Connection con = DriverManager.getConnection(stringCon);
-                Notice notice = new Notice(subject, message, classification, employmentID);
-                int n = Notice.InsertClient(con, notice);
+                NoticeData notice = new NoticeData(subject, message, classification, employmentID);
+                int n = NoticeData.InsertClient(con, notice);
                 res.setDescription("Your notice was sent successfully! We will reply soon.");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

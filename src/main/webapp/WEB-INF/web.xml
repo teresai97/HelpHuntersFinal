@@ -64,5 +64,25 @@
 		<url-pattern>/FileNotice</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>caregiverProfile</servlet-name>
+		<display-name>caregiverProfile</display-name>
+		<servlet-class>app.caregiverProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>caregiverProfile</servlet-name>
+		<url-pattern>/caregiverProfile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>NoticeList</servlet-name>
+		<display-name>NoticeList</display-name>
+		<servlet-class>app.NoticeList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NoticeList</servlet-name>
+		<url-pattern>/NoticeList</url-pattern>
+	</servlet-mapping>
+
 
 </web-app>

@@ -1,4 +1,4 @@
-/*
+
 package app;
 
 import java.io.*;
@@ -146,4 +146,3 @@ public class caregiverProfile extends HttpServlet {
     }
 }
 
-*/

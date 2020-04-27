@@ -37,12 +37,15 @@ function jobOffers(){
                     var message = "Terminated <span class=\"verified-badge\" title=\"Verified Employer\" data-tippy-placement=\"top\"></span>";
                 }
 
-                if (!record.startdate && record.status == 2){
+                if (!record.startdate && record.status == 3) {
                     record.startdate = "Not Working";
                     record.enddate = "Declined offer";
+                } else if (!record.startdate && record.status == 5) {
+                    record.startdate = "Not Working";
+                    record.enddate = "Declined authorization";
                 } else if (!record.startdate && !record.dateauthorized) {
                     record.startdate = "Not Currently Working";
-                    record.enddate = "The job has not been authorized yet";
+                    record.enddate = "Offer hasn't been authorized yet";
                 } else if (record.startdate) {
                     if (!record.enddate) {
                         record.enddate = "Still taking place today";
@@ -143,8 +146,7 @@ function openPopupDetail(i){
 
 <div class="popup-tabs-container">
 
-<!-- Register -->
-<div class="popup-tab-content" id="register">
+<div class="popup-tab-content" id="job">
 
 <!-- Welcome Text -->
 <div class="welcome-text">
