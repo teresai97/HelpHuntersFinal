@@ -11,9 +11,6 @@ function jobOffers(){
     }).then(function(response){
         response.json().then( (data)=>{
             dataOffersGlobal = data;
-            //var miDato = "Teresa";
-
-            //var texto = ` ${miDato} Aprendió  a programar`;
 
             //console.log(texto);
             var html2 = "";

@@ -63,7 +63,6 @@
                                     <div class="user-details">
                                         <div class="user-avatar status-online"></div>
                                         <div class="user-name" id="clientName">
-                                             <span></span>
                                         </div>
                                     </div>
 
@@ -74,7 +73,7 @@
                                     <li><a href="ViewNotices.html"><i class="icon-material-outline-dashboard"></i> Notices</a></li>
                                     <li><a href="JobOffersDetail.html"><i class="icon-material-outline-dashboard"></i> Job Offers</a></li>
                                     <li><a href="ClientSettings.html"><i class="icon-material-outline-settings"></i> Settings</a></li>
-                                    <li><a href="index.html"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
+                                    <li><a onclick = "logout()"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
                                 </ul>
 
                             </div>
@@ -118,7 +117,9 @@
                     <div class="single-page-header-inner">
                         <div class="left-side">
                             <div class="header-details">
-                                <h3 id="nameClient"><span> Client</span></h3>
+                                <h3 style="margin-left: 0px">Client</h3>
+                                <br>
+                                <h3 style = "margin-left: 0px" id="nameClient"></h3>
                                 <br>
                                 <h4 id="email"></h4>
                                 <h4 id="gender"></h4>
@@ -218,6 +219,7 @@
 <script src="js/magnific-popup.min.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/logout.js"></script>
 <script src="js/profileDisplay.js"></script>
 
 <!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->

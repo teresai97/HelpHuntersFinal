@@ -106,7 +106,7 @@ public class ClientData {
                 // Si se pasa el parámetro getPassword como true entonces se guarda la contraseña en el objeto client
                 String password = null;
                 if(getPassword){
-                 password= result.getString("email");
+                    password= result.getString("password");
                 }
 
                 client = new ClientData(
@@ -129,17 +129,30 @@ public class ClientData {
 
     public static ClientData updateClientData(Connection connection, ClientData client, boolean updatePass){
         try {
-        System.out.println("Actualizando datos " + client.clientID  + client.firstname +  " " + client.lastname +  " " + client.email);
-        String sql = "UPDATE Client SET firstname = ?, lastname = ?, email = ? WHERE clientID = ?;";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, client.firstname);
-        statement.setString(2, client.lastname);
-        statement.setString(3, client.email);
-        statement.setInt(4, client.clientID);
+            System.out.println("Actualizando datos " + client.clientID  + client.firstname +  " " + client.lastname +  " " + client.email + " " + client.password);
 
-        System.out.println("Aquí debe de registrar el usuario");
-       
-        statement.executeUpdate();
+            if(updatePass){
+                String sql = "UPDATE Client SET firstname = ?, lastname = ?, email = ?, password = ? WHERE clientID = ?;";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, client.firstname);
+                statement.setString(2, client.lastname);
+                statement.setString(3, client.email);
+                statement.setString(4, client.password);
+                statement.setInt(5, client.clientID);
+                statement.executeUpdate();
+            }else{
+                String sql = "UPDATE Client SET firstname = ?, lastname = ?, email = ? WHERE clientID = ?;";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, client.firstname);
+                statement.setString(2, client.lastname);
+                statement.setString(3, client.email);
+                statement.setInt(4, client.clientID);
+                statement.executeUpdate();
+            }
+
+            System.out.println("Aquí debió  actualizar el usuario");
+
+
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

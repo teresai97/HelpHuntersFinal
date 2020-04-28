@@ -1,5 +1,6 @@
 app/caregiverData.class
 app/NoticeData.class
+app/displayCaregivers.class
 app/clientHome.class
 app/TerminateJob.class
 app/reviewData.class
@@ -10,6 +11,7 @@ app/Response.class
 app/clientUtils.class
 app/NoticeList.class
 app/CheckLogin.class
+app/Logout.class
 app/FileNotice.class
 app/JobOffersDetail.class
 app/ClientData.class

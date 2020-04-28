@@ -3,6 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>ClientRegistration</servlet-name>
@@ -92,6 +93,26 @@
 	<servlet-mapping>
 		<servlet-name>clientHome</servlet-name>
 		<url-pattern>/clientHome</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>displayCaregivers</servlet-name>
+		<display-name>displayCaregivers</display-name>
+		<servlet-class>app.displayCaregivers</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>displayCaregivers</servlet-name>
+		<url-pattern>/displayCaregivers</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<display-name>Logout</display-name>
+		<servlet-class>app.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
 	</servlet-mapping>
 
 

@@ -65,7 +65,7 @@ public class ClientProfile extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter( "lastname");
+        String lastname = request.getParameter( "lastname");
         String email = request.getParameter("email");
         String currentPassword = request.getParameter("currentPassword");
         String newPassword = request.getParameter("newPassword");
@@ -93,24 +93,27 @@ public class ClientProfile extends HttpServlet {
             connection = DriverManager.getConnection(stringCon);
 
             ClientData client = ClientData.getInfo(connection, id, true);
-            
-            System.out.println("El cliente es " + client.password);
+
+            client.setLastname(lastname);
+            client.setFirstname(firstname);
+            client.setEmail(email);
+            client.setClientID(id);
+
+            System.out.println("El cliente es pass " + client.password + " usuario envio " + currentPassword);
             if(newPassword != null){
                 // TODO Terminar es funcionalidad
                 System.out.println("El usuario está intentado cambiar la contraseña");
                 if (client.password.equals(currentPassword) ) {
                     System.out.println(" Ok la contraseña coincide procedemos a cambiarla...");
+                    client.setPassword(newPassword);
+                    ClientData.updateClientData(connection, client, true);
                 }else{
-                    Response res = new Response(true,"Please validate your current they don't  match");
+                    Response res = new Response(true,"Please validate your current it's incorrect");
                     String json = new Gson().toJson(res);
                     response.getWriter().write(json);
                 }
             }else{
                 System.out.println("Solo vamos a cambiar los datos de firstname, lastname, email");
-                client.setLastname(lastname);
-                client.setFirstname(firstname);
-                client.setEmail(email);
-                client.setClientID(id);
                 ClientData.updateClientData(connection, client, false);
 
                 Response res = new Response(false, "Your data was updated");
@@ -126,7 +129,7 @@ public class ClientProfile extends HttpServlet {
             String json = new Gson().toJson(res);
             response.getWriter().write(json);
 
-        } 
+        }
     }
 
 }
