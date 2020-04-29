@@ -44,9 +44,9 @@ public class caregiverData {
 
 	public static Vector<caregiverData> getCaregiverProvinceList(Connection connection, String province) {
         Vector<caregiverData> vec = new Vector<caregiverData>();
-        String sql = "Select Caregiver.firstname, Caregiver.lastname, Caregiver.caregiverID, Caregiver.hourlyrate, Caregiver.description  FROM Caregiver, CaregiverProvinces, Province ";
-        sql += " WHERE Caregiver.caregiverID = CaregiverProvinces.caregiverID";
-		sql += " AND CaregiverProvinces.provinceID = Province.provinceID  ";
+        String sql = "Select Caregiver.firstname, Caregiver.lastname, Caregiver.caregiverID, Caregiver.hourlyrate, Caregiver.description  FROM Caregiver, CaregiversProvinces, Province ";
+        sql += " WHERE Caregiver.caregiverID = CaregiversProvinces.caregiverID";
+		sql += " AND CaregiversProvinces.provinceID = Province.provinceID  ";
 		sql += " AND Caregiver.enrollmentstatus = 1"; 
 		sql += " AND Caregiver.available = 1"; 
 		sql += " AND Province.provincename = ?"; 

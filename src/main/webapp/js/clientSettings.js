@@ -26,7 +26,7 @@ function getUserDataFromForm(){
         "firstname": document.getElementById("firstnameForm").value ,
         "lastname": document.getElementById("lastnameForm").value ,
         "email": document.getElementById("emailForm").value,
-        "newPasswordRepited" : document.getElementById("newPasswordRepited").value,
+        "newPasswordRepeated" : document.getElementById("newPasswordRepeated").value,
         "newPassword" : document.getElementById("newPassword").value,
         "currentPassword" : document.getElementById("currentPassword").value
     }
@@ -36,18 +36,21 @@ function getUserDataFromForm(){
 async function saveUserData(){
     console.log("Guardando los datos del usuario");
     userData = getUserDataFromForm();
+    var changepassword = false;
 
     let userInfo = { firstname: userData.firstname, lastname: userData.lastname, email: userData.email };
 
     if(userData.newPassword){
 
         console.log("El usuario intenta cambiar su contraseña")
-        if (userData.newPassword != userData.newPasswordRepited){
-            alert("New password don't match");
+        if (userData.newPassword != userData.newPasswordRepeated){
+            alert("New passwords don't match");
+            location.reload();
             return;
         } else{
             userInfo["currentPassword"] = userData.currentPassword;
             userInfo["newPassword"] = userData.newPassword;
+            changepassword = true;
         }
 
     }
@@ -55,6 +58,9 @@ async function saveUserData(){
     response = await postDataToServlet("/ClientProfile", userInfo);
     console.log("La respuesta es ", response);
     alert(response.description);
+    if (changepassword == true) {
+        location.reload();
+    }
 }
 
 

@@ -175,14 +175,14 @@ function openPopupDetail(i){
 <div class="section-headline margin-top-25 margin-bottom-12">
 <h5>Hours per week</h5>
 </div>
-<p>${record.hoursperweek} hours</p>
+<p>${record.hoursperweek} hours per week</p>
 </div>
 
 <div class="col-xl-6 col-md-6">
 <div class="section-headline margin-top-25 margin-bottom-12">
 <h5>Total cost per week</h5>
 </div>
-<p>${price} €</p>
+<p>${price} € per week</p>
 </div>
 
 <div class="col-xl-6 col-md-6">

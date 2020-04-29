@@ -15,6 +15,7 @@ app/Logout.class
 app/FileNotice.class
 app/JobOffersDetail.class
 app/ClientData.class
+app/SendOffer.class
 app/caregiverProfile.class
 app/ClientRegistration.class
 app/ResponseProfile.class

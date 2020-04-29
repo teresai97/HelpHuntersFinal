@@ -104,11 +104,21 @@ public class ClientProfile extends HttpServlet {
                 // TODO Terminar es funcionalidad
                 System.out.println("El usuario está intentado cambiar la contraseña");
                 if (client.password.equals(currentPassword) ) {
-                    System.out.println(" Ok la contraseña coincide procedemos a cambiarla...");
-                    client.setPassword(newPassword);
-                    ClientData.updateClientData(connection, client, true);
+                    System.out.println(" Ok la contraseña coincide procedemos a verificar que tenga 8 caracteres.");
+                    newPassword = newPassword.trim();
+                    if (newPassword.length() >= 8) {
+                        client.setPassword(newPassword);
+                        ClientData.updateClientData(connection, client, true);
+                        Response res = new Response(true,"Your personal information was updated successfully!");
+                        String json = new Gson().toJson(res);
+                        response.getWriter().write(json);
+                    } else {
+                        Response res = new Response(true,"The password has to be at least 8 characters long.");
+                        String json = new Gson().toJson(res);
+                        response.getWriter().write(json);
+                    }
                 }else{
-                    Response res = new Response(true,"Please validate your current it's incorrect");
+                    Response res = new Response(true,"Please validate your current password, it's incorrect");
                     String json = new Gson().toJson(res);
                     response.getWriter().write(json);
                 }
@@ -116,7 +126,7 @@ public class ClientProfile extends HttpServlet {
                 System.out.println("Solo vamos a cambiar los datos de firstname, lastname, email");
                 ClientData.updateClientData(connection, client, false);
 
-                Response res = new Response(false, "Your data was updated");
+                Response res = new Response(false, "Your personal information was updated successfully!");
                 String json = new Gson().toJson(res);
                 response.getWriter().write(json);
             }

@@ -17,7 +17,7 @@ public class displayCaregivers extends HttpServlet {
 
 		String stringCon = "jdbc:mysql://localhost/Caregivers?user=equipo&password=Tecnun2020";
 		try {
-			Connection connection = DriverManager.getConnection(stringCon);
+			connection = DriverManager.getConnection(stringCon);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Exception in establishing connection: " + e);

@@ -50,4 +50,32 @@ public class NoticeList  extends HttpServlet {
         System.out.println("Terminé la petición voy a regresar la respuesta");
 
     }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        int noticeID = Integer.parseInt(request.getParameter("noticeID"));
+        int n = 0;
+        ResponseTerminate res = new ResponseTerminate("");
+
+        String stringCon = "jdbc:mysql://localhost/Caregivers?user=equipo&password=Tecnun2020";
+        try {
+            Connection con = DriverManager.getConnection(stringCon);
+            n = NoticeData.readNotice(con, noticeID);
+            if (n == 1) {
+                res.setDescription("Database was successfully updated.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Exception when connecting to Driver: " + e);
+
+            //Mejorar la forma de cachar la excepción.
+        }
+
+        String json = new Gson().toJson(res);
+        System.out.println("Wrote Json");
+
+        response.getWriter().write(json);
+        System.out.println("Terminé la petición voy a regresar la respuesta");
+
+    }
 }

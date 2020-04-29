@@ -1,5 +1,9 @@
 var dataNoticesGlobal = null;
 
+console.log("Entro al javascript noticeList");
+
+noticeList();
+
 function noticeList () {
 
     // Completar obtenciçón de valores
@@ -21,10 +25,11 @@ function noticeList () {
 
                 html += `
                      <!-- Job Listing -->
-                    <a onclick="openPopupNotice(${i})" class="job-listing">
+                    ${ (record.datereplied) && (record.replyhasbeenread == 0) ? '<a onclick="readNotice(' + record.noticeID + ', ' + i + ')" class="job-listing">' : '<a onclick="openPopupNotice(' + i + ')" class="job-listing">'}
                     
                     <!-- Job Listing Details -->
                     <div class="job-listing-details">
+                    ${ (record.datereplied) && (record.replyhasbeenread == 0) ? '<span id="notRead' + i + '" style="color: blue; font-size: 20px; padding-right: 15px;" class="icon-material-outline-feedback"></span>': ''}
                     
                     <!-- Details -->
                     <div class="job-listing-description">
@@ -34,7 +39,7 @@ function noticeList () {
                     <div class="job-listing-footer">
                     <ul>
                     <li><i class="icon-material-outline-access-time"></i> Date created: ${record.datecreated}</li>
-                    ${ (record.datereplied) ? '<li><i class="icon-material-outline-access-time"></i> Date replied:' + record.datereplied + '</li>' : '<li><i class="icon-material-outline-access-time"></i> Date replied: Notice has not been replied yet </li>'}
+                    ${ (record.datereplied) ? '<li><i class="icon-material-outline-access-time"></i> Date replied: ' + record.datereplied + '</li>' : '<li><i class="icon-material-outline-access-time"></i> Date replied: Notice has not been replied yet </li>'}
                     </ul>
                     </div>
                     </div>
@@ -52,6 +57,38 @@ function noticeList () {
        });
     })
 
+}
+
+function readNotice (noticeID, i) {
+
+    var misDatos = {"noticeID": noticeID};
+
+
+    postDataToServlet("/NoticeList", misDatos);
+
+
+    console.log("Notice has been change to read");
+    var id = "notRead"+i;
+    console.log("el id a modifcar es", id);
+
+    document.getElementById(id).style.display = "none";
+
+    openPopupNotice(i);
+}
+
+async function postDataToServlet(servlet, json) {
+
+    function encodeFormData(data){
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
+    }
+
+    console.log("Aqui se inicia la petición al servlet...");
+
+    let response = await  fetch(servlet, {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}, method: 'POST', body: encodeFormData( json )
+    });
+    return await response.json();
 }
 
 function openPopupNotice (i) {
@@ -169,7 +206,7 @@ function openPopupNotice (i) {
                 <div class="section-headline margin-top-25 margin-bottom-12">
                 <h5>Reply:</h5>
                 </div>
-                <p>${record.message}</p>
+                <p>${record.reply}</p>
                 </div>
                 
                 <div class="col-xl-6 col-md-6">
@@ -191,4 +228,3 @@ function openPopupNotice (i) {
     }
 }
 
-noticeList();

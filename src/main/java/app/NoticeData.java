@@ -150,11 +150,16 @@ public class NoticeData {
 
     public static Vector<NoticeData> getNotices (Connection connection, int id) {
         Vector<NoticeData> v = new Vector<NoticeData>();
-        String sql = "Select Notice.*, Caregiver.firstname AS caregiverfirstname, Caregiver.lastname AS caregiverlastname," +
-                " Administrator.firstname AS administratorfirstname, Administrator.lastname AS administratorlastname " +
-                "FROM EmploymentRecord, Caregiver, Notice, Administrator WHERE Notice.employmentID = EmploymentRecord.employmentID " +
-                "AND EmploymentRecord.clientID = ? AND EmploymentRecord.caregiverID = Caregiver.caregiverID AND Notice.administratorID = " +
-                "Administrator.administratorID";
+        String sql = " Select Notice.*, Caregiver.firstname AS caregiverfirstname, Caregiver.lastname AS caregiverlastname, \n" +
+                " Administrator.firstname AS administratorfirstname, Administrator.lastname AS administratorlastname \n" +
+                "\n" +
+                "from Notice \n" +
+                "inner join EmploymentRecord on Notice.employmentID = EmploymentRecord.employmentID\n" +
+                "inner join Caregiver on  EmploymentRecord.caregiverID = Caregiver.caregiverID\n" +
+                "left join Administrator on Notice.administratorID = Administrator.administratorID\n" +
+                "\n" +
+                "where EmploymentRecord.clientID = ?";
+
         System.out.println("See all the notices the client has made: " + sql);
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -188,6 +193,22 @@ public class NoticeData {
         }
 
         return v;
+    }
+
+    public static int readNotice (Connection connection, Integer noticeID) {
+        String sql = "UPDATE Notice SET replyhasbeenread = 1 WHERE noticeID = ?";
+        System.out.println("Read a notice query: " + sql);
+        int n = 0;
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, noticeID);
+            n = statement.executeUpdate();
+            statement.close();
+        }catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Exception " + e + " when reading notice " + sql);
+        }
+        return n;
     }
 }
 

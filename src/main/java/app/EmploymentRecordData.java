@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 
@@ -22,15 +23,12 @@ public class EmploymentRecordData {
     int caregivergender;
     double caregiverhourlyrate;
 
-    public EmploymentRecordData(int clientID, int caregiverID, int administratorID, Date startdate, Date enddate, int hoursperweek, int status, Date dateauthorized) {
+    public EmploymentRecordData(int clientID, int caregiverID, Date startdate, int hoursperweek, int status) {
         this.clientID = clientID;
         this.caregiverID = caregiverID;
-        this.administratorID = administratorID;
         this.startdate = startdate;
-        this.enddate = enddate;
         this.hoursperweek = hoursperweek;
         this.status = status;
-        this.dateauthorized = dateauthorized;
     }
 
     public EmploymentRecordData(int employmentID, int clientID, int caregiverID, int administratorID, Date startdate, Date enddate, int hoursperweek, int status, Date dateauthorized,
@@ -185,7 +183,7 @@ public class EmploymentRecordData {
         Vector<EmploymentRecordData> v = new Vector<EmploymentRecordData>();
         String sql = "Select EmploymentRecord.*, Caregiver.firstname, Caregiver.lastname,\n" +
                 "Caregiver.gender, Caregiver.hourlyrate FROM EmploymentRecord,\n" +
-                "Caregiver WHERE clientID = ? AND EmploymentRecord.caregiverID\n" +
+                "Caregiver WHERE EmploymentRecord.clientID = ? AND EmploymentRecord.caregiverID\n" +
                 " = Caregiver.caregiverID";
         System.out.println("See all the job offers the client has made: " + sql);
         try {
@@ -233,6 +231,33 @@ public class EmploymentRecordData {
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Exception in " + sql + " : " + e);
+        }
+
+        return n;
+    }
+
+    public static int insertjob (Connection con, EmploymentRecordData newjob) {
+        String sql = "INSERT INTO EmploymentRecord (clientID, caregiverID, startdate, hoursperweek, status) " +
+                "VALUES (?, ?, ?, ?, ?)";
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateString = format.format( newjob.startdate  );
+
+        System.out.println("Introduce a new job: " + sql);
+        int n = 0;
+        try {
+            System.out.println("la fecha es " + dateString);
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, newjob.clientID);
+            statement.setInt(2, newjob.caregiverID);
+            statement.setString(3, dateString);
+            statement.setInt(4, newjob.hoursperweek);
+            statement.setInt(5, newjob.status);
+            n=statement.executeUpdate();
+            statement.close();
+        }catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("There is an exception when executing this query " + sql + " which is " + e);
         }
 
         return n;

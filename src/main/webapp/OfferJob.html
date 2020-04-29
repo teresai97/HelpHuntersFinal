@@ -14,7 +14,6 @@
 <link rel="stylesheet" href="css/colors/blue.css">
 
 </head>
-
 <body class="gray">
 
 <!-- Wrapper -->
@@ -37,53 +36,6 @@
 				</div>
 
 
-			</div>
-			<!-- Left Side Content / End -->
-
-
-			<!-- Right Side Content / End -->
-			<div class="right-side">
-
-				<!-- User Menu -->
-				<div class="header-widget">
-
-					<!-- Messages -->
-					<div class="header-notifications user-menu">
-						<div class="header-notifications-trigger">
-							<a href="#"><div class="user-avatar status-online"><img src="images/user-avatar-small-01.jpg" alt=""></div></a>
-						</div>
-
-						<!-- Dropdown -->
-						<div class="header-notifications-dropdown">
-
-							<!-- User Status -->
-							<div class="user-status">
-
-								<!-- User Name / Avatar -->
-								<div class="user-details">
-									<div class="user-avatar status-online"></div>
-									<div class="user-name" id="clientName"></div>
-
-								</div>
-
-							</div>
-
-							<ul class="user-menu-small-nav">
-								<li><a href="ClientProfile.html"><i class="icon-material-outline-face"></i> View my Profile </a></li>
-								<li><a href="REVIEWS_CLIENTS.html"><i class="icon-material-outline-rate-review"></i> Reviews</a></li>
-								<li><a href="MESSAGES_CLIENTS.html"><i class="icon-material-outline-dashboard"></i> Messages</a></li>
-								<li><a href="ViewNotices.html"><i class="icon-feather-send"></i> Notices</a></li>
-								<li><a href="JobOffersDetail.html"><i class="icon-material-outline-business-center"></i> Job Offers</a></li>
-								<li><a href="ClientSettings.html"><i class="icon-material-outline-settings"></i> Settings</a></li>
-								<li><a onclick = "logout()"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
-							</ul>
-
-						</div>
-					</div>
-
-				</div>
-				<!-- User Menu / End -->
-
 
 			</div>
 			<!-- Right Side Content / End -->
@@ -101,7 +53,6 @@
 <div class="dashboard-container">
 
 
-
 	<!-- Dashboard Content
 	================================================== -->
 	<div class="dashboard-content-container" data-simplebar>
@@ -109,7 +60,7 @@
 
 			<!-- Dashboard Headline -->
 			<div class="dashboard-headline">
-				<h3>Settings</h3>
+				<h3 id="offercaregiver"></h3>
 
 			</div>
 
@@ -120,90 +71,39 @@
 				<div class="col-xl-12">
 					<div class="dashboard-box margin-top-0">
 
-						<!-- Headline -->
-						<div class="headline">
-							<h3><i class="icon-material-outline-account-circle"></i> My Account</h3>
-						</div>
 
-						<div class="content with-padding padding-bottom-0">
-
+						<div class="content with-padding padding-bottom-10">
 							<div class="row">
 
-								<div class="col-auto">
-									<div class="avatar-wrapper" data-tippy-placement="bottom" title="Change Avatar">
-										<img class="profile-pic" src="images/user-avatar-placeholder.png" alt="" />
-										<div class="upload-button"></div>
-										<input class="file-upload" type="file" accept="image/*"/>
-									</div>
-								</div>
-
-								<div class="col">
-									<div class="row">
-
-										<div class="col-xl-6">
-											<div class="submit-field">
-												<h5>First Name</h5>
-												<input id="firstnameForm" type="text" class="with-border">
-											</div>
-										</div>
-
-										<div class="col-xl-6">
-											<div class="submit-field">
-												<h5>Last Name</h5>
-												<input id="lastnameForm" type="text" class="with-border">
-											</div>
-										</div>
-
-										<div class="col-xl-6">
-
-										</div>
-
-										<div class="col-xl-6">
-											<div class="submit-field">
-												<h5>Email</h5>
-												<input id="emailForm" type="text" class="with-border">
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-				<!-- Dashboard Box -->
-				<div class="col-xl-12">
-					<div class="dashboard-box">
-
-
-
-						<!-- Headline -->
-						<div class="headline">
-							<h3><i class="icon-material-outline-lock"></i> Password & Security</h3>
-						</div>
-
-						<div class="content with-padding">
-							<div class="row">
 								<div class="col-xl-4">
 									<div class="submit-field">
-										<h5>Current Password</h5>
-										<input id="currentPassword" type="password" class="with-border">
+										<h5>Start Date</h5>
+										<input type="text" id="startdate" class="with-border" placeholder="dd/mm/yyyy">
 									</div>
 								</div>
 
 								<div class="col-xl-4">
 									<div class="submit-field">
-										<h5>New Password</h5>
-										<input id="newPassword" type="password" class="with-border">
+										<h5>Hours of work per week</h5>
+										<div class="input-with-icon">
+											<div id="autocomplete-container">
+												<input id="hoursperweek" class="with-border" type="text" placeholder="Number of work hours per week" onkeyup="returnsalary(event)">
+											</div>
+										</div>
 									</div>
 								</div>
 
 								<div class="col-xl-4">
 									<div class="submit-field">
-										<h5>Repeat New Password</h5>
-										<input id="newPasswordRepeated" type="password" class="with-border">
+										<h5>Salary per week</h5>
+										<div class="row">
+											<div class="col-xl-6">
+												<div class="input-with-icon">
+													<input class="with-border" type="text" id="salaryperweek" disabled>
+													<i class="currency">EUR</i>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 
@@ -212,9 +112,8 @@
 					</div>
 				</div>
 
-				<!-- Button -->
 				<div class="col-xl-12">
-					<a onclick="saveUserData()" class="button ripple-effect big margin-top-30" style="color: white;">Save Changes</a>
+					<a onclick="sendOffer()" style="color:white" class="button ripple-effect big margin-top-30"><i class="icon-feather-plus"></i> Send Request</a>
 				</div>
 
 			</div>
@@ -277,11 +176,8 @@
 <script src="js/counterup.min.js"></script>
 <script src="js/magnific-popup.min.js"></script>
 <script src="js/slick.min.js"></script>
-<script src="js/logout.js"></script>
 <script src="js/custom.js"></script>
-
-<script src="js/clientSettings.js"></script>
-
+<script src="js/sendOffer.js"></script>
 
 <!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
 <script>
@@ -297,6 +193,82 @@ $('#snackbar-user-status label').click(function() {
 		backgroundColor: '#383838'
 	});
 });
+</script>
+
+<!-- Chart.js // documentation: http://www.chartjs.org/docs/latest/ -->
+<script src="js/chart.min.js"></script>
+<script>
+	Chart.defaults.global.defaultFontFamily = "Nunito";
+	Chart.defaults.global.defaultFontColor = '#888';
+	Chart.defaults.global.defaultFontSize = '14';
+
+	var ctx = document.getElementById('chart').getContext('2d');
+
+	var chart = new Chart(ctx, {
+		type: 'line',
+
+		// The data for our dataset
+		data: {
+			labels: ["January", "February", "March", "April", "May", "June"],
+			// Information about the dataset
+	   		datasets: [{
+				label: "Views",
+				backgroundColor: 'rgba(42,65,232,0.08)',
+				borderColor: '#2a41e8',
+				borderWidth: "3",
+				data: [196,132,215,362,210,252],
+				pointRadius: 5,
+				pointHoverRadius:5,
+				pointHitRadius: 10,
+				pointBackgroundColor: "#fff",
+				pointHoverBackgroundColor: "#fff",
+				pointBorderWidth: "2",
+			}]
+		},
+
+		// Configuration options
+		options: {
+
+		    layout: {
+		      padding: 10,
+		  	},
+
+			legend: { display: false },
+			title:  { display: false },
+
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: false
+					},
+					gridLines: {
+						 borderDash: [6, 10],
+						 color: "#d8d8d8",
+						 lineWidth: 1,
+	            	},
+				}],
+				xAxes: [{
+					scaleLabel: { display: false },
+					gridLines:  { display: false },
+				}],
+			},
+
+		    tooltips: {
+		      backgroundColor: '#333',
+		      titleFontSize: 13,
+		      titleFontColor: '#fff',
+		      bodyFontColor: '#fff',
+		      bodyFontSize: 13,
+		      displayColors: false,
+		      xPadding: 10,
+		      yPadding: 10,
+		      intersect: false
+		    }
+		},
+
+
+});
+
 </script>
 
 
@@ -318,6 +290,10 @@ $('#snackbar-user-status label').click(function() {
 		}
 	}
 </script>
+
+<!-- Google API & Maps -->
+<!-- Geting an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
 
 
 </body>

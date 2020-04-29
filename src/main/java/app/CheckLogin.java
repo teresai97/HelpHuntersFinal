@@ -38,9 +38,9 @@ public class CheckLogin extends HttpServlet {
             session.setAttribute("login", logged);
 			session.setAttribute("loginid", loggedid);
             //res.sendRedirect("clientHome");
-            res.sendRedirect("ClientProfile.html");
+            res.sendRedirect("clientHome");
         } else {
-            res.sendRedirect("INICIO.html");
+            res.sendRedirect("index.html");
             }
            
         }

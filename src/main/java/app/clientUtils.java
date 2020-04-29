@@ -40,12 +40,13 @@ public class clientUtils {
 		str.append("</div>");
 		str.append("</div>");
 		str.append("<ul class='user-menu-small-nav'>");
-		str.append("<li><a href='clientProfile'><i class='icon-material-outline-face'></i> View my Profile </a></li>");
-		str.append("<li><a href='clientReviews'><i class='icon-material-outline-rate-review'></i> Reviews</a></li>");
-		str.append("<li><a href='clientMessages'><i class='icon-material-outline-dashboard'></i> Messages</a></li>");
-		str.append("<li><a href='clientJobs.html'><i class='icon-material-outline-dashboard'></i> Active Jobs</a></li>");
-		str.append("<li><a href='clientSettings'><i class='icon-material-outline-settings'></i> Settings</a></li>");
-		str.append("<li><a href='INICIO.html'><i class='icon-material-outline-power-settings-new'></i> Logout</a></li>");
+		str.append("<li><a href=\"ClientProfile.html\"><i class=\"icon-material-outline-face\"></i> View my Profile </a></li>");
+		str.append("<li><a href=\"REVIEWS_CLIENTS.html\"><i class=\"icon-material-outline-rate-review\"></i> Reviews</a></li>");
+		str.append("<li><a href=\"MESSAGES_CLIENTS.html\"><i class=\"icon-material-outline-dashboard\"></i> Messages</a></li>");
+		str.append("<li><a href=\"ViewNotices.html\"><i class=\"icon-feather-send\"></i> Notices</a></li>");
+		str.append("<li><a href=\"JobOffersDetail.html\"><i class=\"icon-material-outline-business-center\"></i> Job Offers</a></li>");
+		str.append("<li><a href=\"ClientSettings.html\"><i class=\"icon-material-outline-settings\"></i> Settings</a></li>");
+		 str.append("<li><a onclick = \"logout()\"><i class=\"icon-material-outline-power-settings-new\"></i> Logout</a></li>");
 		str.append("</ul>");
 		str.append("");
 		str.append("</div>");
@@ -132,6 +133,7 @@ public class clientUtils {
 		str.append("<script src='js/magnific-popup.min.js'></script>");
 		str.append("<script src='js/slick.min.js'></script>");
 		str.append("<script src='js/custom.js'></script>");
+		str.append("<script src=\"js/logout.js\"></script>");
         str.append("</body>");
         str.append("</html>");
         return str.toString();
