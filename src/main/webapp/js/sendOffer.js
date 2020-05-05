@@ -47,7 +47,11 @@ function sendOffer () {
 
             console.log("La respuesta es", data );
             alert(data.description)
-            window.location.href = "JobOffersDetail.html";
+            if (data.notok == false) {
+                window.location.href = "JobOffersDetail.html";
+            } else {
+                location.reload();
+            }
         });
     })
 
