@@ -1,8 +1,5 @@
 package app;
-
 import java.io.*;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -10,35 +7,30 @@ import java.sql.Connection;
 
 @SuppressWarnings("serial")
 public class clientHome extends HttpServlet {
-    Connection connection;
+	Connection connection;
+
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		connection = ConnectionUtils.getConnection(config);
+	}
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException  {
 		res.setContentType("text/html");
-
-		String stringCon = "jdbc:mysql://localhost/Caregivers?user=equipo&password=Tecnun2020";
-		try {
-			connection = DriverManager.getConnection(stringCon);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Exception in establishing connection: " + e);
-		}
-
-        res.setContentType("text/html");
-        PrintWriter toClient = res.getWriter();
-        String client = req.getParameter("login");
-        HttpSession session = req.getSession(false);
-        String login = null;
+		PrintWriter toClient = res.getWriter();
+		//String client = req.getParameter("login");
+		HttpSession session = req.getSession(false);
+		String login = null;
 		int loginid = 0;
-        if (session != null) {
-            login = (String)session.getAttribute("login");
+		if (session != null) {
+			login = (String)session.getAttribute("login");
 			loginid = (int)session.getAttribute("loginid");
 			session.setAttribute("login", login);
 			session.setAttribute("loginid", loginid);
-            System.out.println("clientHome logged");
-            System.out.println("clientHome login: " + login);
+			System.out.println("clientHome logged");
+			System.out.println("clientHome login: " + login);
 			System.out.println("clientHome loginid: " + loginid);
-        }
-        toClient.println(clientUtils.header(login));
+		}
+		toClient.println(clientUtils.header(login));
 		toClient.println("<div class='intro-banner dark-overlay big-padding'>");
 		toClient.println("<div class='transparent-header-spacer'></div>");
 		toClient.println("<div class='container'>");
@@ -56,7 +48,7 @@ public class clientHome extends HttpServlet {
 		toClient.println("<div class='intro-banner-search-form margin-top-95'>");
 		toClient.println("<div class='intro-search-field'>");
 		toClient.println("<label for ='intro-keywords' class='field-title ripple-effect'>Where?</label>");
-		toClient.println("<select class='selectpicker' name = 'province' action = 'displayCaregivers'>");
+		toClient.println("<select class='selectpicker' name = 'province' action = 'displayCaregivers' >");
 		toClient.println("<option value = 'Araba/Alava' >Araba/Alava</option>");
 		toClient.println("<option value = 'Albacete' >Albacete</option>");
 		toClient.println("<option value 'Alicante/Alacant' >Alicante/Alacant</option>");
@@ -120,7 +112,7 @@ public class clientHome extends HttpServlet {
 		toClient.println("</div>");
 		toClient.println("</div>");
 		toClient.println("</div>");
-        toClient.println(clientUtils.footer(login));
-        toClient.close();
-    }
+		toClient.println(clientUtils.footer(login));
+		toClient.close();
+	}
 }

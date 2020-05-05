@@ -125,5 +125,34 @@
 		<url-pattern>/SendOffer</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>clientMessages</servlet-name>
+		<display-name>clientMessages</display-name>
+		<servlet-class>app.clientMessages</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>clientMessages</servlet-name>
+		<url-pattern>/clientMessages</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>displayMessage</servlet-name>
+		<display-name>displayMessage</display-name>
+		<servlet-class>app.displayMessage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>displayMessage</servlet-name>
+		<url-pattern>/displayMessage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>sendMessage</servlet-name>
+		<display-name>sendMessage</display-name>
+		<servlet-class>app.sendMessage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sendMessage</servlet-name>
+		<url-pattern>/sendMessage</url-pattern>
+	</servlet-mapping>
 
 </web-app>
