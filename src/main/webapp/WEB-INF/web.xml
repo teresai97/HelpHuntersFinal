@@ -8,8 +8,9 @@
   <servlet>
   	<servlet-name>ClientRegistration</servlet-name>
   	<display-name>ClientRegistration</display-name>
-  	<servlet-class>app.ClientRegistration</servlet-class>
+  	<servlet-class>ClientRegistration</servlet-class>
   </servlet>
+
   <servlet-mapping>
   	<servlet-name>ClientRegistration</servlet-name>
   	<url-pattern>/ClientRegistration</url-pattern>
@@ -18,7 +19,7 @@
 	<servlet>
 		<servlet-name>CheckLogin</servlet-name>
 		<display-name>CheckLogin</display-name>
-		<servlet-class>app.CheckLogin</servlet-class>
+		<servlet-class>CheckLogin</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CheckLogin</servlet-name>
@@ -28,7 +29,7 @@
 	<servlet>
 		<servlet-name>ClientProfile</servlet-name>
 		<display-name>ClientProfile</display-name>
-		<servlet-class>app.ClientProfile</servlet-class>
+		<servlet-class>ClientProfile</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ClientProfile</servlet-name>
@@ -38,7 +39,7 @@
 	<servlet>
 		<servlet-name>JobOffersDetail</servlet-name>
 		<display-name>JobOffersDetail</display-name>
-		<servlet-class>app.JobOffersDetail</servlet-class>
+		<servlet-class>JobOffersDetail</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>JobOffersDetail</servlet-name>
@@ -48,7 +49,7 @@
 	<servlet>
 		<servlet-name>TerminateJob</servlet-name>
 		<display-name>TerminateJob</display-name>
-		<servlet-class>app.TerminateJob</servlet-class>
+		<servlet-class>TerminateJob</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>TerminateJob</servlet-name>
@@ -58,7 +59,7 @@
 	<servlet>
 		<servlet-name>FileNotice</servlet-name>
 		<display-name>FileNotice</display-name>
-		<servlet-class>app.FileNotice</servlet-class>
+		<servlet-class>FileNotice</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FileNotice</servlet-name>
@@ -68,7 +69,7 @@
 	<servlet>
 		<servlet-name>caregiverProfile</servlet-name>
 		<display-name>caregiverProfile</display-name>
-		<servlet-class>app.caregiverProfile</servlet-class>
+		<servlet-class>caregiverProfile</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>caregiverProfile</servlet-name>
@@ -78,7 +79,7 @@
 	<servlet>
 		<servlet-name>NoticeList</servlet-name>
 		<display-name>NoticeList</display-name>
-		<servlet-class>app.NoticeList</servlet-class>
+		<servlet-class>NoticeList</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>NoticeList</servlet-name>
@@ -88,7 +89,7 @@
 	<servlet>
 		<servlet-name>clientHome</servlet-name>
 		<display-name>clientHome</display-name>
-		<servlet-class>app.clientHome</servlet-class>
+		<servlet-class>clientHome</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>clientHome</servlet-name>
@@ -98,7 +99,7 @@
 	<servlet>
 		<servlet-name>displayCaregivers</servlet-name>
 		<display-name>displayCaregivers</display-name>
-		<servlet-class>app.displayCaregivers</servlet-class>
+		<servlet-class>displayCaregivers</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>displayCaregivers</servlet-name>
@@ -108,7 +109,7 @@
 	<servlet>
 		<servlet-name>Logout</servlet-name>
 		<display-name>Logout</display-name>
-		<servlet-class>app.Logout</servlet-class>
+		<servlet-class>Logout</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Logout</servlet-name>
@@ -118,7 +119,7 @@
 	<servlet>
 		<servlet-name>SendOffer</servlet-name>
 		<display-name>SendOffer</display-name>
-		<servlet-class>app.SendOffer</servlet-class>
+		<servlet-class>SendOffer</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SendOffer</servlet-name>
@@ -128,7 +129,7 @@
 	<servlet>
 		<servlet-name>clientMessages</servlet-name>
 		<display-name>clientMessages</display-name>
-		<servlet-class>app.clientMessages</servlet-class>
+		<servlet-class>clientMessages</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>clientMessages</servlet-name>
@@ -138,7 +139,7 @@
 	<servlet>
 		<servlet-name>displayMessage</servlet-name>
 		<display-name>displayMessage</display-name>
-		<servlet-class>app.displayMessage</servlet-class>
+		<servlet-class>displayMessage</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>displayMessage</servlet-name>
@@ -148,11 +149,173 @@
 	<servlet>
 		<servlet-name>sendMessage</servlet-name>
 		<display-name>sendMessage</display-name>
-		<servlet-class>app.sendMessage</servlet-class>
+		<servlet-class>sendMessage</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>sendMessage</servlet-name>
 		<url-pattern>/sendMessage</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>tryUtils</servlet-name>
+		<servlet-class>tryUtils</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminNotice</servlet-name>
+		<servlet-class>adminNotice</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminLogin</servlet-name>
+		<servlet-class>adminLogin</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminLoginValidation</servlet-name>
+		<servlet-class>adminLoginValidation</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminSettings</servlet-name>
+		<servlet-class>adminSettings</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminClient</servlet-name>
+		<servlet-class>adminClient</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminNoticeInfo</servlet-name>
+		<servlet-class>adminNoticeInfo</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminClientInfo</servlet-name>
+		<servlet-class>adminClientInfo</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminClientAnalytics</servlet-name>
+		<servlet-class>adminClientAnalytics</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminCaregiverAnalytics</servlet-name>
+		<servlet-class>adminCaregiverAnalytics</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminAjax</servlet-name>
+		<servlet-class>adminAjax</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminDeleteClient</servlet-name>
+		<servlet-class>adminDeleteClient</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminClientNotices</servlet-name>
+		<servlet-class>adminClientNotices</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminSettingsAjax</servlet-name>
+		<servlet-class>adminSettingsAjax</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminNoticeListAjax</servlet-name>
+		<servlet-class>adminNoticeListAjax</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminMakeIncidenceAjax</servlet-name>
+		<servlet-class>adminMakeIncidenceAjax</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>tryUtils</servlet-name>
+		<url-pattern>/tryUtils</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminNotice</servlet-name>
+		<url-pattern>/adminNotice</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminLogin</servlet-name>
+		<url-pattern>/adminLogin</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminLoginValidation</servlet-name>
+		<url-pattern>/adminLoginValidation</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminSettings</servlet-name>
+		<url-pattern>/adminSettings</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminClient</servlet-name>
+		<url-pattern>/adminClient</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminNoticeInfo</servlet-name>
+		<url-pattern>/adminNoticeInfo</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminClientInfo</servlet-name>
+		<url-pattern>/adminClientInfo</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminClientAnalytics</servlet-name>
+		<url-pattern>/adminClientAnalytics</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminCaregiverAnalytics</servlet-name>
+		<url-pattern>/adminCaregiverAnalytics</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminAjax</servlet-name>
+		<url-pattern>/adminAjax</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminDeleteClient</servlet-name>
+		<url-pattern>/adminDeleteClient</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminClientNotices</servlet-name>
+		<url-pattern>/adminClientNotices</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminSettingsAjax</servlet-name>
+		<url-pattern>/adminSettingsAjax</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminNoticeListAjax</servlet-name>
+		<url-pattern>/adminNoticeListAjax</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminMakeIncidenceAjax</servlet-name>
+		<url-pattern>/adminMakeIncidenceAjax</url-pattern>
+	</servlet-mapping>
+
+
 
 </web-app>
