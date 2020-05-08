@@ -6,64 +6,64 @@
 
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>ClientRegistration</servlet-name>
-  	<display-name>ClientRegistration</display-name>
-  	<servlet-class>ClientRegistration</servlet-class>
+  	<servlet-name>TeresaClientRegistration</servlet-name>
+  	<display-name>TeresaClientRegistration</display-name>
+  	<servlet-class>TeresaClientRegistration</servlet-class>
   </servlet>
 
   <servlet-mapping>
-  	<servlet-name>ClientRegistration</servlet-name>
-  	<url-pattern>/ClientRegistration</url-pattern>
+  	<servlet-name>TeresaClientRegistration</servlet-name>
+  	<url-pattern>/TeresaClientRegistration</url-pattern>
   </servlet-mapping>
 
 	<servlet>
-		<servlet-name>CheckLogin</servlet-name>
-		<display-name>CheckLogin</display-name>
-		<servlet-class>CheckLogin</servlet-class>
+		<servlet-name>TeresaCheckLogin</servlet-name>
+		<display-name>TeresaCheckLogin</display-name>
+		<servlet-class>TeresaCheckLogin</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>CheckLogin</servlet-name>
-		<url-pattern>/CheckLogin</url-pattern>
+		<servlet-name>TeresaCheckLogin</servlet-name>
+		<url-pattern>/TeresaCheckLogin</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>ClientProfile</servlet-name>
-		<display-name>ClientProfile</display-name>
-		<servlet-class>ClientProfile</servlet-class>
+		<servlet-name>TeresaClientProfile</servlet-name>
+		<display-name>TeresaClientProfile</display-name>
+		<servlet-class>TeresaClientProfile</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ClientProfile</servlet-name>
-		<url-pattern>/ClientProfile</url-pattern>
+		<servlet-name>TeresaClientProfile</servlet-name>
+		<url-pattern>/TeresaClientProfile</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>JobOffersDetail</servlet-name>
-		<display-name>JobOffersDetail</display-name>
-		<servlet-class>JobOffersDetail</servlet-class>
+		<servlet-name>TeresaJobOffersDetail</servlet-name>
+		<display-name>TeresaJobOffersDetail</display-name>
+		<servlet-class>TeresaJobOffersDetail</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>JobOffersDetail</servlet-name>
-		<url-pattern>/JobOffersDetail</url-pattern>
+		<servlet-name>TeresaJobOffersDetail</servlet-name>
+		<url-pattern>/TeresaJobOffersDetail</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>TerminateJob</servlet-name>
-		<display-name>TerminateJob</display-name>
-		<servlet-class>TerminateJob</servlet-class>
+		<servlet-name>TeresaTerminateJob</servlet-name>
+		<display-name>TeresaTerminateJob</display-name>
+		<servlet-class>TeresaTerminateJob</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TerminateJob</servlet-name>
-		<url-pattern>/TerminateJob</url-pattern>
+		<servlet-name>TeresaTerminateJob</servlet-name>
+		<url-pattern>/TeresaTerminateJob</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>FileNotice</servlet-name>
-		<display-name>FileNotice</display-name>
-		<servlet-class>FileNotice</servlet-class>
+		<servlet-name>TeresaFileNotice</servlet-name>
+		<display-name>TeresaFileNotice</display-name>
+		<servlet-class>TeresaFileNotice</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>FileNotice</servlet-name>
-		<url-pattern>/FileNotice</url-pattern>
+		<servlet-name>TeresaFileNotice</servlet-name>
+		<url-pattern>/TeresaFileNotice</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -77,13 +77,13 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>NoticeList</servlet-name>
-		<display-name>NoticeList</display-name>
-		<servlet-class>NoticeList</servlet-class>
+		<servlet-name>TeresaNoticeList</servlet-name>
+		<display-name>TeresaNoticeList</display-name>
+		<servlet-class>TeresaNoticeList</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>NoticeList</servlet-name>
-		<url-pattern>/NoticeList</url-pattern>
+		<servlet-name>TeresaNoticeList</servlet-name>
+		<url-pattern>/TeresaNoticeList</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -107,23 +107,23 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>Logout</servlet-name>
-		<display-name>Logout</display-name>
-		<servlet-class>Logout</servlet-class>
+		<servlet-name>TeresaLogout</servlet-name>
+		<display-name>TeresaLogout</display-name>
+		<servlet-class>TeresaLogout</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Logout</servlet-name>
-		<url-pattern>/Logout</url-pattern>
+		<servlet-name>TeresaLogout</servlet-name>
+		<url-pattern>/TeresaLogout</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>SendOffer</servlet-name>
-		<display-name>SendOffer</display-name>
-		<servlet-class>SendOffer</servlet-class>
+		<servlet-name>TeresaSendOffer</servlet-name>
+		<display-name>TeresaSendOffer</display-name>
+		<servlet-class>TeresaSendOffer</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>SendOffer</servlet-name>
-		<url-pattern>/SendOffer</url-pattern>
+		<servlet-name>TeresaSendOffer</servlet-name>
+		<url-pattern>/TeresaSendOffer</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

@@ -3,15 +3,319 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>MiServlet</servlet-name>
-  	<display-name>MiServlet</display-name>
-  	<description></description>
-  	<servlet-class>app.MiServlet</servlet-class>
+  	<servlet-name>TeresaClientRegistration</servlet-name>
+  	<display-name>TeresaClientRegistration</display-name>
+  	<servlet-class>TeresaClientRegistration</servlet-class>
   </servlet>
+
   <servlet-mapping>
-  	<servlet-name>MiServlet</servlet-name>
-  	<url-pattern>/MiServlet</url-pattern>
+  	<servlet-name>TeresaClientRegistration</servlet-name>
+  	<url-pattern>/TeresaClientRegistration</url-pattern>
   </servlet-mapping>
+
+	<servlet>
+		<servlet-name>TeresaCheckLogin</servlet-name>
+		<display-name>TeresaCheckLogin</display-name>
+		<servlet-class>TeresaCheckLogin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeresaCheckLogin</servlet-name>
+		<url-pattern>/TeresaCheckLogin</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TeresaClientProfile</servlet-name>
+		<display-name>TeresaClientProfile</display-name>
+		<servlet-class>TeresaClientProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeresaClientProfile</servlet-name>
+		<url-pattern>/TeresaClientProfile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TeresaJobOffersDetail</servlet-name>
+		<display-name>TeresaJobOffersDetail</display-name>
+		<servlet-class>TeresaJobOffersDetail</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeresaJobOffersDetail</servlet-name>
+		<url-pattern>/TeresaJobOffersDetail</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TeresaTerminateJob</servlet-name>
+		<display-name>TeresaTerminateJob</display-name>
+		<servlet-class>TeresaTerminateJob</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeresaTerminateJob</servlet-name>
+		<url-pattern>/TeresaTerminateJob</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TeresaFileNotice</servlet-name>
+		<display-name>TeresaFileNotice</display-name>
+		<servlet-class>TeresaFileNotice</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeresaFileNotice</servlet-name>
+		<url-pattern>/TeresaFileNotice</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>caregiverProfile</servlet-name>
+		<display-name>caregiverProfile</display-name>
+		<servlet-class>caregiverProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>caregiverProfile</servlet-name>
+		<url-pattern>/caregiverProfile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TeresaNoticeList</servlet-name>
+		<display-name>TeresaNoticeList</display-name>
+		<servlet-class>TeresaNoticeList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeresaNoticeList</servlet-name>
+		<url-pattern>/TeresaNoticeList</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>clientHome</servlet-name>
+		<display-name>clientHome</display-name>
+		<servlet-class>clientHome</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>clientHome</servlet-name>
+		<url-pattern>/clientHome</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>displayCaregivers</servlet-name>
+		<display-name>displayCaregivers</display-name>
+		<servlet-class>displayCaregivers</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>displayCaregivers</servlet-name>
+		<url-pattern>/displayCaregivers</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TeresaLogout</servlet-name>
+		<display-name>TeresaLogout</display-name>
+		<servlet-class>TeresaLogout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeresaLogout</servlet-name>
+		<url-pattern>/TeresaLogout</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TeresaSendOffer</servlet-name>
+		<display-name>TeresaSendOffer</display-name>
+		<servlet-class>TeresaSendOffer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeresaSendOffer</servlet-name>
+		<url-pattern>/TeresaSendOffer</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>clientMessages</servlet-name>
+		<display-name>clientMessages</display-name>
+		<servlet-class>clientMessages</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>clientMessages</servlet-name>
+		<url-pattern>/clientMessages</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>displayMessage</servlet-name>
+		<display-name>displayMessage</display-name>
+		<servlet-class>displayMessage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>displayMessage</servlet-name>
+		<url-pattern>/displayMessage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>sendMessage</servlet-name>
+		<display-name>sendMessage</display-name>
+		<servlet-class>sendMessage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sendMessage</servlet-name>
+		<url-pattern>/sendMessage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>tryUtils</servlet-name>
+		<servlet-class>tryUtils</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminNotice</servlet-name>
+		<servlet-class>adminNotice</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminLogin</servlet-name>
+		<servlet-class>adminLogin</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminLoginValidation</servlet-name>
+		<servlet-class>adminLoginValidation</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminSettings</servlet-name>
+		<servlet-class>adminSettings</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminClient</servlet-name>
+		<servlet-class>adminClient</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminNoticeInfo</servlet-name>
+		<servlet-class>adminNoticeInfo</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminClientInfo</servlet-name>
+		<servlet-class>adminClientInfo</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminClientAnalytics</servlet-name>
+		<servlet-class>adminClientAnalytics</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminCaregiverAnalytics</servlet-name>
+		<servlet-class>adminCaregiverAnalytics</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminAjax</servlet-name>
+		<servlet-class>adminAjax</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminDeleteClient</servlet-name>
+		<servlet-class>adminDeleteClient</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminClientNotices</servlet-name>
+		<servlet-class>adminClientNotices</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminSettingsAjax</servlet-name>
+		<servlet-class>adminSettingsAjax</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminNoticeListAjax</servlet-name>
+		<servlet-class>adminNoticeListAjax</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminMakeIncidenceAjax</servlet-name>
+		<servlet-class>adminMakeIncidenceAjax</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>tryUtils</servlet-name>
+		<url-pattern>/tryUtils</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminNotice</servlet-name>
+		<url-pattern>/adminNotice</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminLogin</servlet-name>
+		<url-pattern>/adminLogin</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminLoginValidation</servlet-name>
+		<url-pattern>/adminLoginValidation</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminSettings</servlet-name>
+		<url-pattern>/adminSettings</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminClient</servlet-name>
+		<url-pattern>/adminClient</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminNoticeInfo</servlet-name>
+		<url-pattern>/adminNoticeInfo</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminClientInfo</servlet-name>
+		<url-pattern>/adminClientInfo</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminClientAnalytics</servlet-name>
+		<url-pattern>/adminClientAnalytics</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminCaregiverAnalytics</servlet-name>
+		<url-pattern>/adminCaregiverAnalytics</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminAjax</servlet-name>
+		<url-pattern>/adminAjax</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminDeleteClient</servlet-name>
+		<url-pattern>/adminDeleteClient</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminClientNotices</servlet-name>
+		<url-pattern>/adminClientNotices</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminSettingsAjax</servlet-name>
+		<url-pattern>/adminSettingsAjax</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminNoticeListAjax</servlet-name>
+		<url-pattern>/adminNoticeListAjax</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>adminMakeIncidenceAjax</servlet-name>
+		<url-pattern>/adminMakeIncidenceAjax</url-pattern>
+	</servlet-mapping>
+
+
+
 </web-app>

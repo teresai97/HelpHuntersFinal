@@ -215,6 +215,7 @@ $(document).ready(function(){
 		$(userMenuTrigger).on('click', function(event) {
 			event.preventDefault();
 
+
 			if ( $(this).closest(".header-notifications").is(".active") ) {
 	            close_user_dropdown();
 	        } else {

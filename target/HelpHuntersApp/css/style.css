@@ -145,6 +145,25 @@ select {
 	box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.12);
 }
 
+.white-popup {
+	position: relative;
+	background: #FFF;
+	padding: 20px;
+	width: auto;
+	max-width: 500px;
+	margin: 20px auto;
+
+}
+.mfp-bg{
+	opacity: .3;
+}
+
+
+.container-card {
+	background: white;
+	margin: 50px;
+}
+
 select {
 	padding: 15px 18px;
 	cursor: pointer;
